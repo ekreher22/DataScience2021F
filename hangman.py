@@ -26,7 +26,8 @@ def play_hangman():
             print('Not one of the letters!')
             used_letters.add(user_guess)
             num_of_guesses += 1
-            
+         
+        print('So far you have: ')
         # so far you have guessed here
         print('You have guessed:\n' +  str(used_letters))
         #num_of_guesses += 1
@@ -37,8 +38,7 @@ def play_hangman():
             gameover = True
         
     print('the game is over')
- 
-    
+  
 play_hangman()
 
 
