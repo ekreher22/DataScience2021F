@@ -4,55 +4,46 @@ import random
 word_options = ['apple', 'banana', 'cherry']
 word = random.choice(word_options) 
 print(word)
-#print(len(word))
-
 
 def play_hangman():
     print ('Welcome to Hangman!')
-    word_letters = set(word)
-    #print ('The secret word has ' + len(word) + ' letters and the theme is fruit') 
-    print(word_letters)
+    print ('The secret word has ' + str(len(word)) + ' letters and the theme is fruit') 
+    word_letters = set(word) # list of letters in the word
     used_letters = set()
-    user_guess = input ('Enter guess:').lower()
-    used_letters.add(user_guess)
-    print(user_guess) 
-    if user_guess in word_letters:
-        print('You guessed a letter!')
-        word_letters.remove(user_guess)
-    elif user_guess in used_letters:
-        print('You already guessed that letter')
-    else:
-        print('Not one of the letters!')
+    num_of_guesses = 0
+    max_num_of_guesses = 10
+    gameover = False
+    while (num_of_guesses < max_num_of_guesses) & (gameover == False):
+        user_guess = input ('Enter guess:').lower()
+        if user_guess in word_letters:
+            print('Yes, "' + str(user_guess) + '" is in the word!')
+            word_letters.remove(user_guess)
+            used_letters.add(user_guess)
+            num_of_guesses += 1
+        elif user_guess in used_letters:
+            print('You already guessed that letter')
+        else:
+            print('Not one of the letters!')
+            used_letters.add(user_guess)
+            num_of_guesses += 1
+            
+        # so far you have guessed here
+        print('You have guessed:\n' +  str(used_letters))
+        #num_of_guesses += 1
+        print('You have ' + str((max_num_of_guesses - num_of_guesses)) +' guesses left.')
+        #print(word_letters)
+        if word_letters == set():
+            print('You guessed the word!')
+            gameover = True
         
+    print('the game is over')
+ 
     
 play_hangman()
 
 
-
-#print (num)
-#print (' letters and the theme is fruit!')
-
-
-#guesses = []
-#finish = False
-
-#while finish == False:
-    
-#guessed_letters = [(input("Enter guess: "))]
+# create 'so far you have ****e* '
 
 
 
-
-#list_size = int(input("Enter the number of sub list "))
-
-#print("\n")
-
-#print(guessed_letters)
-
-
-#while True:
-   # guessed_letters = [(input("Enter guess: "))]
-   # if guessed_letters == 'stop': break
-   # print(guessed_letters)
-   # figure out how to stop 
     
