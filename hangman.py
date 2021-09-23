@@ -15,7 +15,7 @@ def play_hangman():
     used_letters = set()
     user_guess = input ('Enter guess:').lower()
     used_letters.add(user_guess)
-    print(user_guess)
+    print(user_guess) 
     if user_guess in word_letters:
         print('You guessed a letter!')
         word_letters.remove(user_guess)
