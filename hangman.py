@@ -25,14 +25,15 @@ def play_hangman():
             print('Not one of the letters!')
             used_letters.add(user_guess)
             num_of_guesses += 1
-        #displaying guessed parts of the word
-        displayWord = [letter if letter in used_letters else '*' for letter in word]
-        print('So far you have ' + str(displayWord))
-        print('You have guessed:\n' +  str(used_letters))
-        print('You have ' + str((max_num_of_guesses - num_of_guesses)) +' guesses left.')
         if word_letters == set():
             print('You guessed the word!')
             gameover = True   
+        else:
+            displayWord = [letter if letter in used_letters else '*' for letter in word]
+            print('So far you have ' + str(displayWord))
+            print('You have guessed:\n' +  str(used_letters))
+            print('You have ' + str((max_num_of_guesses - num_of_guesses)) +' guesses left.')
+        
     print('the game is over')
   
 play_hangman()
