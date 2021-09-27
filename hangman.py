@@ -30,10 +30,9 @@ def play_hangman():
             gameover = True   
         else:
             displayWord = [letter if letter in used_letters else '*' for letter in word]
-            print('So far you have ' + str(displayWord))
+            print('So far you have ' + str(', '.join(displayWord)))
             print('You have guessed:\n' +  str(used_letters))
             print('You have ' + str((max_num_of_guesses - num_of_guesses)) +' guesses left.')
-        
     print('the game is over')
   
 play_hangman()
