@@ -1,14 +1,13 @@
 import random 
-
 # choosing random word
 word_options = ['apple', 'banana', 'cherry']
 word = random.choice(word_options) 
-print(word)
+
 
 def play_hangman():
     print ('Welcome to Hangman!')
-    print ('The secret word has ' + str(len(word)) + ' letters and the theme is fruit') 
-    word_letters = set(word) # list of letters in the word
+    print ('The secret word has ' + str(len(word)) + ' letters and the theme is fruit!') 
+    word_letters = set(word) 
     used_letters = set()
     num_of_guesses = 0
     max_num_of_guesses = 10
@@ -26,23 +25,18 @@ def play_hangman():
             print('Not one of the letters!')
             used_letters.add(user_guess)
             num_of_guesses += 1
-         
-        print('So far you have: ')
-        # so far you have guessed here
+        #displaying guessed parts of the word
+        displayWord = [letter if letter in used_letters else '*' for letter in word]
+        print('So far you have ' + str(displayWord))
         print('You have guessed:\n' +  str(used_letters))
-        #num_of_guesses += 1
         print('You have ' + str((max_num_of_guesses - num_of_guesses)) +' guesses left.')
-        #print(word_letters)
         if word_letters == set():
             print('You guessed the word!')
-            gameover = True
-        
+            gameover = True   
     print('the game is over')
   
 play_hangman()
 
-
-# create 'so far you have ****e* '
 
 
 
